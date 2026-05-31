@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMSO, Consultoría y Soluciones</title>
+  <!-- Favicon (se actualiza desde config.js) -->
+  <link id="favicon" rel="icon" type="image/x-icon" href="images/EMSO-Logos.ico">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     Logo: edita brand.logo en js/config.js
+     Links: modifica los <a href> directamente aquí
+════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="images/EMSO-Logo.png" alt="EMSO Logo">
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#residencial">Servicios Residenciales</a></li>
+    <li><a href="#comercial">Servicios Comerciales</a></li>
+    <li><a href="#consultoria">Consultoría</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto" class="nav-cta">Solicitar Cotización</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+     Textos: edita hero{} en js/config.js
+     Imagen de fondo: modifica el gradient en css/styles.css
+     bajo el selector #inicio
+════════════════════════════════════════════════════ -->
+<section id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-circle c1"></div>
+  <div class="hero-circle c2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fa-solid fa-shield-check"></i>
+      <span id="hero-badge-text">Empresa Mexicana de Confianza</span>
+    </div>
+    <div class="hero-brand-name" id="hero-brand-name-main">
+      EMSO <span class="hero-brand-sub">Consultoría y Soluciones</span>
+    </div>
+    <h1 class="hero-h1">Soluciones Integrales con <span>Profesionalismo,</span> Confianza y Resultados</h1>
+    <p class="hero-sub">EMSO es tu aliado estratégico en mantenimiento, instalación, rehabilitación y consultoría para hogares, negocios y organizaciones. Un solo proveedor, múltiples soluciones.</p>
+    <div class="hero-btns">
+      <a href="#residencial" class="btn-primary">Conoce nuestros servicios</a>
+      <a href="#contacto"    class="btn-outline">Contáctanos</a>
+    </div>
+    <!-- Stats: se generan dinámicamente desde config.js -->
+    <div class="hero-stats"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SERVICIOS RESIDENCIALES
+     Tarjetas: edita serviciosResidenciales[] en config.js
+     Para agregar/quitar servicios, agrega/elimina objetos
+     del arreglo. El grid se adapta automáticamente.
+════════════════════════════════════════════════════ -->
+<section id="residencial">
+  <div class="center fade-up">
+    <span class="section-label">Para tu hogar</span>
+    <h2 class="section-title">Servicios Residenciales</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Soluciones especializadas para el mantenimiento, mejora y conservación de tu vivienda, con atención personalizada y garantía de resultados.</p>
+  </div>
+  <!-- Las tarjetas se inyectan aquí desde main.js -->
+  <div class="grid-3 fade-up"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SERVICIOS COMERCIALES
+     Tarjetas: edita serviciosComerciales[] en config.js
+════════════════════════════════════════════════════ -->
+<section id="comercial">
+  <div class="center fade-up">
+    <span class="section-label" style="color:#a0c4ff">Para tu negocio</span>
+    <h2 class="section-title white">Servicios Comerciales</h2>
+    <div class="divider" style="background:linear-gradient(90deg,#a0c4ff,#5585cc)"></div>
+    <p class="section-sub white">Soluciones orientadas a garantizar la continuidad operativa, la seguridad y la eficiencia de las instalaciones de tu empresa.</p>
+  </div>
+  <!-- Las tarjetas se inyectan aquí desde main.js -->
+  <div class="grid-4 fade-up"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CONSULTORÍA
+     Textos: edita consultoria{} en config.js
+════════════════════════════════════════════════════ -->
+<section id="consultoria">
+  <div class="consultoria-grid fade-up">
+    <div>
+      <span class="section-label">Valor estratégico</span>
+      <h2 class="section-title">Consultoría Empresarial</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Servicios de consultoría enfocados en el fortalecimiento organizacional, la mejora de procesos y la certificación de calidad de tu empresa.</p>
+      <!-- Lista: se inyecta desde main.js -->
+      <ul class="consult-list"></ul>
+    </div>
+    <div>
+      <div class="consult-img-block">
+        <h3>Tu empresa, nuestro compromiso</h3>
+        <p>En EMSO entendemos que la confianza de nuestros clientes se construye mediante resultados. Cada servicio de consultoría está diseñado para generar beneficios tangibles y relaciones comerciales de largo plazo.</p>
+        <div class="iso-badge">
+          <i class="fa-solid fa-award"></i>
+          <span>Especialistas en ISO 9001:2015</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     VALORES
+     Edita valores[] en config.js
+════════════════════════════════════════════════════ -->
+<section id="nosotros">
+  <div class="center fade-up">
+    <span class="section-label">Quiénes somos</span>
+    <h2 class="section-title">Nuestros Valores Corporativos</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Cada proyecto que emprendemos refleja los principios que nos definen como empresa y como equipo de trabajo.</p>
+  </div>
+  <!-- Strip de valores: se inyecta desde main.js -->
+  <div class="valores-strip fade-up"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     MISIÓN Y VISIÓN
+     Textos: edita mision{} y vision{} en config.js
+════════════════════════════════════════════════════ -->
+<section id="mision" style="background:var(--light)">
+  <div class="center fade-up" style="margin-bottom:48px">
+    <span class="section-label">Filosofía empresarial</span>
+    <h2 class="section-title">Misión &amp; Visión</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="mv-grid fade-up">
+    <div class="mv-card m">
+      <span class="mv-tag">Nuestra Misión</span>
+      <h2>Crear alianzas duraderas</h2>
+      <p>Crear alianzas duraderas con nuestros clientes mediante la prestación de soluciones integrales que generen valor, confianza y tranquilidad, distinguiéndonos por nuestro profesionalismo, calidad de servicio y compromiso permanente con la satisfacción de quienes depositan su confianza en nosotros.</p>
+    </div>
+    <div class="mv-card v">
+      <span class="mv-tag">Nuestra Visión 2030</span>
+      <h2>Referente regional</h2>
+      <p>Para el año 2030, ser una empresa reconocida a nivel regional por la excelencia, seriedad y confiabilidad de nuestros servicios, consolidándonos como un referente en soluciones técnicas, operativas y de consultoría para los sectores residencial y comercial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA BAND
+     Textos: edita cta{} en config.js
+════════════════════════════════════════════════════ -->
+<div id="cta-band" class="fade-up">
+  <h2>¿Listo para encontrar la solución que necesitas?</h2>
+  <p>Cuéntanos tu proyecto y nuestro equipo te brindará una atención personalizada.</p>
+  <a href="#contacto" class="btn-cta">Contáctanos hoy &rarr;</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CONTACTO
+     Datos: edita contacto{} en config.js
+     Servicios del select: editar directamente en el HTML
+════════════════════════════════════════════════════ -->
+<section id="contacto">
+  <div class="center fade-up" style="margin-bottom:56px">
+    <span class="section-label">Estamos para ti</span>
+    <h2 class="section-title">Contáctanos</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Escríbenos y con gusto te atenderemos para ofrecerte la solución que mejor se adapte a tus necesidades.</p>
+  </div>
+  <div class="contact-grid fade-up">
+    <div class="contact-form">
+      <h3 style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:28px;color:var(--dark)">Solicita una Cotización</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre completo *</label>
+          <input type="text" placeholder="Ej. Carlos Ramírez">
+        </div>
+        <div class="form-group">
+          <label>Empresa (opcional)</label>
+          <input type="text" placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input type="tel" placeholder="81 4706 0140">
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico *</label>
+          <input type="email" placeholder="correo@ejemplo.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tipo de servicio *</label>
+        <select>
+          <option value="">Selecciona un servicio...</option>
+          <optgroup label="Servicios Residenciales">
+            <option>Electrodomésticos</option>
+            <option>Obras Civiles</option>
+            <option>Remodelación</option>
+            <option>Aire Acondicionado</option>
+            <option>Instalaciones Eléctricas</option>
+            <option>Plomería</option>
+            <option>Videovigilancia</option>
+            <option>Reparación de Cómputo/Celular</option>
+            <option>Tinacos y Cisternas</option>
+            <option>Energía Solar</option>
+            <option>Mantenimiento Vehicular</option>
+          </optgroup>
+          <optgroup label="Servicios Comerciales">
+            <option>Climatización Comercial</option>
+            <option>Eléctrico Industrial</option>
+            <option>Plomería Comercial</option>
+            <option>Videovigilancia Comercial</option>
+            <option>Equipos de Cómputo</option>
+            <option>Plafones y Pisos Falsos</option>
+          </optgroup>
+          <optgroup label="Consultoría">
+            <option>ISO 9001:2015</option>
+            <option>Optimización de Procesos</option>
+            <option>Auditorías</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje *</label>
+        <textarea placeholder="Cuéntanos sobre tu proyecto o necesidad..."></textarea>
+      </div>
+      <button class="btn-form" type="button">
+        Enviar solicitud <i class="fa-solid fa-paper-plane" style="margin-left:8px"></i>
+      </button>
+    </div>
+    <div class="contact-info">
+      <h3>Información de Contacto</h3>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div><h4>Ubicación</h4><p>Monterrey, Nuevo León, México</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+        <div><h4>Teléfono</h4><p>81 4706 0140</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div><h4>Correo</h4><p>contacto@emsocs.com</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+        <div><h4>Horario de Atención</h4><p>Lunes a Viernes: 8:00 AM – 6:00 PM<br>Sábado: 9:00 AM – 2:00 PM</p></div>
+      </div>
+      <a href="https://wa.me/528147060140" class="wa-btn">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Escríbenos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     Textos y links: edita footer{} y redes{} en config.js
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/EMSO-Logo.png" alt="EMSO Logo">
+      <p class="footer-tagline">Soluciones integrales con profesionalismo, confianza y resultados para hogares, negocios y organizaciones.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#residencial">Servicios Residenciales</a></li>
+        <li><a href="#comercial">Servicios Comerciales</a></li>
+        <li><a href="#consultoria">Consultoría</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Aire Acondicionado</a></li>
+        <li><a href="#">Instalaciones Eléctricas</a></li>
+        <li><a href="#">Energía Solar</a></li>
+        <li><a href="#">Videovigilancia</a></li>
+        <li><a href="#">Plomería</a></li>
+        <li><a href="#">ISO 9001:2015</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <p>Monterrey, Nuevo León<br>México<br><br>81 4706 0140<br><br>contacto@emsocs.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 EMSO, Consultoría y Soluciones. Todos los derechos reservados.</p>
+    <p style="color:#555">Hecho con profesionalismo en Monterrey, NL</p>
+  </div>
+</footer>
+
+<!-- Scripts (config primero, luego main) -->
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
