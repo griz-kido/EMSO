@@ -19,23 +19,26 @@ const EMSO_CONFIG = {
   },
 
   // ─── COLORES ─────────────────────────────────────────────
+  // Paleta oficial — EMSO, Identidad de Marca 2026
   // Modifica los valores HEX para cambiar la paleta de colores
   colores: {
-    navy:  "#030A8C",   // Azul marino principal
-    blue:  "#034AA6",   // Azul medio
-    sky:   "#035AA6",   // Azul cielo / acento
-    gray:  "#A6A6A6",   // Gris texto secundario
-    dark:  "#0D0D0D",   // Negro textos
-    white: "#FFFFFF",   // Blanco
-    light: "#F4F6FB",   // Fondo claro secciones
-    accentHero: "#a0c4ff",  // Color acento en hero (títulos / íconos)
+    navy:      "#1A2A5E",   // EMSO Navy — color principal de marca
+    blue:      "#1F3A8A",   // Royal Blue — acento / énfasis
+    navyDeep:  "#0F1938",   // Variante oscura del Navy (profundidad en degradados)
+    sky:       "#1F3A8A",   // Royal Blue (texto de énfasis, divisores)
+    silver:    "#B8BFC7",   // Gris Plata — bordes, trazos, líneas divisorias
+    gray:      "#5B6472",   // Gris texto secundario (tono azulado, legible sobre blanco)
+    dark:      "#12172E",   // Texto principal / fondo footer
+    white:     "#FFFFFF",   // Blanco
+    light:     "#EEF1F8",   // Ice — fondo claro de secciones
+    accentHero: "#A7B3D8",  // Tinte claro de Royal Blue (acentos sobre fondo navy)
     whatsapp:   "#25D366",  // Color botón WhatsApp
   },
 
   // ─── CONTACTO ────────────────────────────────────────────
   contacto: {
-    telefono:   "81 4706 0140",
-    whatsapp:   "528147060140",   // Número internacional sin +
+    telefono:   "81 1638 5679",
+    whatsapp:   "528116385679",   // Número internacional sin +
     correo:     "contacto@emsocs.com",
     ciudad:     "Monterrey, Nuevo León, México",
     horario:    "Lunes a Viernes: 8:00 AM – 6:00 PM<br>Sábado: 9:00 AM – 2:00 PM",
@@ -61,7 +64,6 @@ const EMSO_CONFIG = {
     boton2_href:  "#contacto",
     stats: [
       { numero: "+12", etiqueta: "Servicios Residenciales" },
-      { numero: "+10", etiqueta: "Servicios Comerciales"   },
       { numero: "ISO", etiqueta: "9001:2015"               },
     ],
   },
@@ -83,20 +85,6 @@ const EMSO_CONFIG = {
     { icono: "fa-solid fa-car",           titulo: "Mantenimiento Vehicular",   descripcion: "Afinación menor y mantenimiento preventivo para vehículos de gasolina." },
   ],
 
-  // ─── SERVICIOS COMERCIALES ───────────────────────────────
-  serviciosComerciales: [
-    { icono: "fa-solid fa-wind",      titulo: "Climatización Comercial",  descripcion: "Aire acondicionado y sistemas de climatización para negocios y oficinas." },
-    { icono: "fa-solid fa-industry",  titulo: "Eléctrico Industrial",     descripcion: "Instalaciones eléctricas industriales y adecuaciones de infraestructura." },
-    { icono: "fa-solid fa-wrench",    titulo: "Plomería Comercial",       descripcion: "Servicios generales de plomería para establecimientos comerciales." },
-    { icono: "fa-solid fa-camera",    titulo: "Videovigilancia Comercial",descripcion: "CCTV y monitoreo para negocios, oficinas y establecimientos." },
-    { icono: "fa-solid fa-laptop",    titulo: "Equipos de Cómputo",       descripcion: "Mantenimiento y reparación de equipos, laptops y dispositivos móviles." },
-    { icono: "fa-solid fa-water",     titulo: "Tinacos y Cisternas",      descripcion: "Instalación y mantenimiento de sistemas hídricos comerciales." },
-    { icono: "fa-solid fa-sun",       titulo: "Energía Solar",            descripcion: "Instalación y mantenimiento de sistemas de energía solar para empresas." },
-    { icono: "fa-solid fa-border-all",titulo: "Plafones y Pisos Falsos",  descripcion: "Instalación, mantenimiento y rehabilitación de plafones y pisos técnicos." },
-    { icono: "fa-solid fa-chart-line",titulo: "Optimización de Procesos", descripcion: "Diagnóstico, análisis y optimización de procesos organizacionales." },
-    { icono: "fa-solid fa-certificate",titulo:"ISO 9001:2015",            descripcion: "Asesoría, implementación y seguimiento de Sistemas de Gestión de Calidad." },
-  ],
-
   // ─── CONSULTORÍA ─────────────────────────────────────────
   consultoria: {
     titulo:      "Consultoría Empresarial",
@@ -106,14 +94,13 @@ const EMSO_CONFIG = {
       "Identificación de oportunidades de mejora operativa",
       "Desarrollo e implementación de procedimientos y controles",
       "Documentación para Sistemas de Gestión de Calidad",
-      "Capacitación y acompañamiento para ISO 9001:2015",
       "Preparación para auditorías internas y externas",
       "Seguimiento de indicadores y mejora continua",
     ],
     bloque: {
       titulo:      "Tu empresa, nuestro compromiso",
       descripcion: "En EMSO entendemos que la confianza de nuestros clientes se construye mediante resultados. Cada servicio de consultoría está diseñado para generar beneficios tangibles y relaciones comerciales de largo plazo.",
-      badge:       "Especialistas en ISO 9001:2015",
+      badge:       "Especialistas en Revisión e Implementación de Procesos",
     },
   },
 

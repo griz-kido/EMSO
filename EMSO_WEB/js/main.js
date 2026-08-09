@@ -12,13 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 1. APLICAR COLORES DINÁMICAMENTE ───────────────────
   const root = document.documentElement;
   const c = EMSO_CONFIG.colores;
-  root.style.setProperty('--navy',  c.navy);
-  root.style.setProperty('--blue',  c.blue);
-  root.style.setProperty('--sky',   c.sky);
-  root.style.setProperty('--gray',  c.gray);
-  root.style.setProperty('--dark',  c.dark);
-  root.style.setProperty('--white', c.white);
-  root.style.setProperty('--light', c.light);
+  root.style.setProperty('--navy',       c.navy);
+  root.style.setProperty('--blue',       c.blue);
+  root.style.setProperty('--navy-deep',  c.navyDeep);
+  root.style.setProperty('--sky',        c.sky);
+  root.style.setProperty('--silver',     c.silver);
+  root.style.setProperty('--gray',       c.gray);
+  root.style.setProperty('--dark',       c.dark);
+  root.style.setProperty('--white',      c.white);
+  root.style.setProperty('--light',      c.light);
+  root.style.setProperty('--accent-hero',c.accentHero);
+  root.style.setProperty('--whatsapp',   c.whatsapp);
 
   // ── 2. MARCA ─────────────────────────────────────────
   const b = EMSO_CONFIG.brand;
@@ -67,17 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (gridRes) {
     gridRes.innerHTML = EMSO_CONFIG.serviciosResidenciales.map(s => `
       <div class="service-card">
-        <div class="service-icon"><i class="${s.icono}"></i></div>
-        <h3>${s.titulo}</h3>
-        <p>${s.descripcion}</p>
-      </div>`).join('');
-  }
-
-  // ── 5. SERVICIOS COMERCIALES ──────────────────────────
-  const gridCom = document.querySelector('#comercial .grid-4');
-  if (gridCom) {
-    gridCom.innerHTML = EMSO_CONFIG.serviciosComerciales.map(s => `
-      <div class="service-card dark">
         <div class="service-icon"><i class="${s.icono}"></i></div>
         <h3>${s.titulo}</h3>
         <p>${s.descripcion}</p>
@@ -184,15 +177,55 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
   // ── 16. FORMULARIO ────────────────────────────────────
-  const btnForm = document.querySelector('.btn-form');
-  if (btnForm) {
-    btnForm.addEventListener('click', function () {
-      this.textContent = '¡Enviado! Te contactaremos pronto ✓';
-      this.style.background = '#1a7a3c';
-      setTimeout(() => {
-        this.innerHTML = 'Enviar solicitud <i class="fa-solid fa-paper-plane" style="margin-left:8px"></i>';
-        this.style.background = '';
-      }, 4000);
+  // Envía los datos a send-form.php, que reenvía el correo (ver ese archivo).
+  const quoteForm = document.getElementById('quoteForm');
+  const btnForm   = document.querySelector('.btn-form');
+  const formMsg   = document.getElementById('formMsg');
+  const btnHTML   = 'Enviar solicitud <i class="fa-solid fa-paper-plane" style="margin-left:8px"></i>';
+
+  if (quoteForm && btnForm) {
+    quoteForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Validación nativa del navegador (campos "required")
+      if (!quoteForm.checkValidity()) {
+        quoteForm.reportValidity();
+        return;
+      }
+
+      btnForm.disabled = true;
+      btnForm.textContent = 'Enviando...';
+      if (formMsg) formMsg.style.display = 'none';
+
+      fetch('send-form.php', {
+        method: 'POST',
+        body: new FormData(quoteForm),
+      })
+        .then(res => res.json().catch(() => ({ success: false, error: 'Respuesta inválida del servidor.' })))
+        .then(data => {
+          if (data.success) {
+            btnForm.innerHTML = '¡Enviado! Te contactaremos pronto ✓';
+            btnForm.style.background = '#1a7a3c';
+            quoteForm.reset();
+          } else {
+            throw new Error(data.error || 'No se pudo enviar tu solicitud.');
+          }
+        })
+        .catch(err => {
+          if (formMsg) {
+            formMsg.textContent = err.message || 'Ocurrió un error. Intenta de nuevo o escríbenos por WhatsApp.';
+            formMsg.style.color = '#c0392b';
+            formMsg.style.display = 'block';
+          }
+          btnForm.innerHTML = btnHTML;
+        })
+        .finally(() => {
+          btnForm.disabled = false;
+          setTimeout(() => {
+            btnForm.innerHTML = btnHTML;
+            btnForm.style.background = '';
+          }, 5000);
+        });
     });
   }
 

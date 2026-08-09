@@ -7,7 +7,7 @@
   <!-- Favicon (se actualiza desde config.js) -->
   <link id="favicon" rel="icon" type="image/x-icon" href="images/EMSO-Logos.ico">
   <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos principales -->
@@ -30,7 +30,6 @@
   <ul class="nav-links" id="navlinks">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#residencial">Servicios Residenciales</a></li>
-    <li><a href="#comercial">Servicios Comerciales</a></li>
     <li><a href="#consultoria">Consultoría</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#contacto" class="nav-cta">Solicitar Cotización</a></li>
@@ -81,21 +80,6 @@
   </div>
   <!-- Las tarjetas se inyectan aquí desde main.js -->
   <div class="grid-3 fade-up"></div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
-     SERVICIOS COMERCIALES
-     Tarjetas: edita serviciosComerciales[] en config.js
-════════════════════════════════════════════════════ -->
-<section id="comercial">
-  <div class="center fade-up">
-    <span class="section-label" style="color:#a0c4ff">Para tu negocio</span>
-    <h2 class="section-title white">Servicios Comerciales</h2>
-    <div class="divider" style="background:linear-gradient(90deg,#a0c4ff,#5585cc)"></div>
-    <p class="section-sub white">Soluciones orientadas a garantizar la continuidad operativa, la seguridad y la eficiencia de las instalaciones de tu empresa.</p>
-  </div>
-  <!-- Las tarjetas se inyectan aquí desde main.js -->
-  <div class="grid-4 fade-up"></div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════
@@ -188,66 +172,66 @@
   </div>
   <div class="contact-grid fade-up">
     <div class="contact-form">
-      <h3 style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:28px;color:var(--dark)">Solicita una Cotización</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre completo *</label>
-          <input type="text" placeholder="Ej. Carlos Ramírez">
+      <h3 style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.4rem;margin-bottom:28px;color:var(--dark)">Solicita una Cotización</h3>
+      <form id="quoteForm" novalidate>
+        <!-- Honeypot anti-spam: campo oculto, invisible para personas -->
+        <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+          <label for="website">No llenar este campo</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="q-nombre">Nombre completo *</label>
+            <input type="text" id="q-nombre" name="nombre" placeholder="Ej. Carlos Ramírez" required>
+          </div>
+          <div class="form-group">
+            <label for="q-empresa">Empresa (opcional)</label>
+            <input type="text" id="q-empresa" name="empresa" placeholder="Nombre de tu empresa">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="q-telefono">Teléfono *</label>
+            <input type="tel" id="q-telefono" name="telefono" placeholder="81 1638 5679" required>
+          </div>
+          <div class="form-group">
+            <label for="q-correo">Correo electrónico *</label>
+            <input type="email" id="q-correo" name="correo" placeholder="correo@ejemplo.com" required>
+          </div>
         </div>
         <div class="form-group">
-          <label>Empresa (opcional)</label>
-          <input type="text" placeholder="Nombre de tu empresa">
+          <label for="q-servicio">Tipo de servicio *</label>
+          <select id="q-servicio" name="servicio" required>
+            <option value="">Selecciona un servicio...</option>
+            <optgroup label="Servicios Residenciales">
+              <option>Electrodomésticos</option>
+              <option>Obras Civiles</option>
+              <option>Remodelación</option>
+              <option>Aire Acondicionado</option>
+              <option>Instalaciones Eléctricas</option>
+              <option>Plomería</option>
+              <option>Videovigilancia</option>
+              <option>Reparación de Cómputo/Celular</option>
+              <option>Tinacos y Cisternas</option>
+              <option>Energía Solar</option>
+              <option>Mantenimiento Vehicular</option>
+            </optgroup>
+            <optgroup label="Consultoría">
+              <option>ISO 9001:2015</option>
+              <option>Optimización de Procesos</option>
+              <option>Auditorías</option>
+            </optgroup>
+          </select>
         </div>
-      </div>
-      <div class="form-row">
         <div class="form-group">
-          <label>Teléfono *</label>
-          <input type="tel" placeholder="81 4706 0140">
+          <label for="q-mensaje">Mensaje *</label>
+          <textarea id="q-mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o necesidad..." required></textarea>
         </div>
-        <div class="form-group">
-          <label>Correo electrónico *</label>
-          <input type="email" placeholder="correo@ejemplo.com">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Tipo de servicio *</label>
-        <select>
-          <option value="">Selecciona un servicio...</option>
-          <optgroup label="Servicios Residenciales">
-            <option>Electrodomésticos</option>
-            <option>Obras Civiles</option>
-            <option>Remodelación</option>
-            <option>Aire Acondicionado</option>
-            <option>Instalaciones Eléctricas</option>
-            <option>Plomería</option>
-            <option>Videovigilancia</option>
-            <option>Reparación de Cómputo/Celular</option>
-            <option>Tinacos y Cisternas</option>
-            <option>Energía Solar</option>
-            <option>Mantenimiento Vehicular</option>
-          </optgroup>
-          <optgroup label="Servicios Comerciales">
-            <option>Climatización Comercial</option>
-            <option>Eléctrico Industrial</option>
-            <option>Plomería Comercial</option>
-            <option>Videovigilancia Comercial</option>
-            <option>Equipos de Cómputo</option>
-            <option>Plafones y Pisos Falsos</option>
-          </optgroup>
-          <optgroup label="Consultoría">
-            <option>ISO 9001:2015</option>
-            <option>Optimización de Procesos</option>
-            <option>Auditorías</option>
-          </optgroup>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Mensaje *</label>
-        <textarea placeholder="Cuéntanos sobre tu proyecto o necesidad..."></textarea>
-      </div>
-      <button class="btn-form" type="button">
-        Enviar solicitud <i class="fa-solid fa-paper-plane" style="margin-left:8px"></i>
-      </button>
+        <p class="form-msg" id="formMsg" style="display:none;font-size:.85rem;margin-bottom:14px"></p>
+        <button class="btn-form" type="submit">
+          Enviar solicitud <i class="fa-solid fa-paper-plane" style="margin-left:8px"></i>
+        </button>
+      </form>
     </div>
     <div class="contact-info">
       <h3>Información de Contacto</h3>
@@ -257,7 +241,7 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-        <div><h4>Teléfono</h4><p>81 4706 0140</p></div>
+        <div><h4>Teléfono</h4><p>81 1638 5679</p></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -267,7 +251,7 @@
         <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
         <div><h4>Horario de Atención</h4><p>Lunes a Viernes: 8:00 AM – 6:00 PM<br>Sábado: 9:00 AM – 2:00 PM</p></div>
       </div>
-      <a href="https://wa.me/528147060140" class="wa-btn">
+      <a href="https://wa.me/528116385679" class="wa-btn">
         <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Escríbenos por WhatsApp
       </a>
     </div>
@@ -295,7 +279,6 @@
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#residencial">Servicios Residenciales</a></li>
-        <li><a href="#comercial">Servicios Comerciales</a></li>
         <li><a href="#consultoria">Consultoría</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -314,7 +297,7 @@
     </div>
     <div class="footer-col">
       <h4>Contacto</h4>
-      <p>Monterrey, Nuevo León<br>México<br><br>81 4706 0140<br><br>contacto@emsocs.com</p>
+      <p>Monterrey, Nuevo León<br>México<br><br>81 1638 5679<br><br>contacto@emsocs.com</p>
     </div>
   </div>
   <div class="footer-bottom">
